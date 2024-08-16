@@ -1,0 +1,17 @@
+# Alias do kubectl
+alias k=kubectl
+complete -F __start_kubectl k
+source <(kubectl completion zsh)
+
+alias kns="kubectl config set-context --current --namespace"
+
+# pwgen para gerar senhas
+alias passgen="pwgen -s 12 1 -y -c 0 | pbcopy | echo 'Password generated and copied to clipboard'"
+
+# Atalho para gerar loop
+loop() {
+	  for i in $(seq 1 $2); do curl $1;done
+  }
+
+# Alias para rodar o code-server
+alias ct='code tunnel --verbose --log trace| tee $HOME/log/code_server_output-`date '+%d-%m-%Y_%H%M%S'`.log'
