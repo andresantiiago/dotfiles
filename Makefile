@@ -1,30 +1,19 @@
 OS := $(shell uname)
-BREW_EXISTS := $(shell command -v brew >/dev/null 2>&1 && echo "yes" || echo "no")
+SCRIPT := ./install/install.sh
 
-install: detect-os install-homebrew
+install: detect-os run-script
 
+# Verificando o sistema operacional
 detect-os:
-	@if [ "$(OS)" != "Darwin" ]; then \
-		echo "Este script só suporta macOS."; \
+	@if [ "$(OS)" = "Darwin" ]; then \
+		echo "Sistema operacional detectado: macOS"; \
+	else \
+		echo "Este instalador é específico para MacOS (Por enquanto...)."; \
 		exit 1; \
-	else \
-		echo "Sistema detectado: macOS"; \
 	fi
 
-install-homebrew:
-	@if [ "$(BREW_EXISTS)" = "yes" ]; then \
-		echo "Homebrew já está instalado."; \
-		echo "Instalando pacotes..."; \
-		/bin/bash -c "xargs brew install < $(CURDIR)/install/Brewlist"; \
-		echo "Pacotes instalados com sucesso!"; \
-	else \
-		echo "Instalando Homebrew..."; \
-		/bin/bash -c "$$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"; \
-		@echo "Homebrew instalado com sucesso!"; \
+# Executa o script se o sistema for macOS
+run-script:
+	@$(SCRIPT)
 
-		echo "Instalando pacotes..."; \
-		/bin/bash -c "xargs brew install < $(CURDIR)/install/Brewlist"; \
-		echo "Pacotes instalados com sucesso!"; \
-	fi
-
-.PHONY: install detect-os install-homebrew
+.PHONY: install detect-os run-script

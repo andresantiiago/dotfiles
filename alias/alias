@@ -8,10 +8,14 @@ alias kns="kubectl config set-context --current --namespace"
 # pwgen para gerar senhas
 alias passgen="pwgen -s 12 1 -y -c 0 | pbcopy | echo 'Password generated and copied to clipboard'"
 
-# Atalho para gerar loop
-loop() {
-	  for i in $(seq 1 $2); do curl $1;done
+# Atalho para gerar loop de curl
+lcurl() {
+	  for i in $(seq 1 $2); do curl -I $1;done
+  }
+
+ldig() {
+	  for i in $(seq 1 $3); do dig $1 @$2;done
   }
 
 # Alias para rodar o code-server
-alias ct='code tunnel --verbose --log trace| tee $HOME/log/code_server_output-`date '+%d-%m-%Y_%H%M%S'`.log'
+alias ct='code tunnel --verbose --log trace| tee /var/log/code_server_output-`date '+%d-%m-%Y_%H%M%S'`.log'

@@ -1,9 +1,12 @@
+ansible
+awscli
 bcrypt
 bitwarden
 btop
 fastfetch
 gh
 go
+go-task/tap/go-task
 helm
 ipcalc
 iterm2
@@ -13,6 +16,7 @@ kind
 kubernetes-cli
 kubeseal
 pwgen
+sha3sum
 terraform
 tmux
 wget
