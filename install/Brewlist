@@ -1,7 +1,6 @@
 ansible
 awscli
 bcrypt
-bitwarden
 btop
 fastfetch
 gh
@@ -9,7 +8,6 @@ go
 go-task/tap/go-task
 helm
 ipcalc
-iterm2
 jq
 k9s
 kind

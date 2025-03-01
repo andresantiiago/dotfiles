@@ -1,4 +1,4 @@
-# Personal dotfiles for MacOS
+# Personal dotfiles
 
 ## How to install
 
