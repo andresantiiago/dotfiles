@@ -43,24 +43,31 @@ install_homebrew() {
     fi
 }
 
-# install_ohmyzsh() {
-#     # https://github.com/ohmyzsh/ohmyzsh
-# }
+install_ohmyzsh() {
+    # https://github.com/ohmyzsh/ohmyzsh
+    sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+    return 0
+}
 
-# install_fzf() {
-#     # https://github.com/junegunn/fzf
-# }
 
-# install_powerlevel10k() {
-#     # https://github.com/romkatv/powerlevel10k
-# }
+install_powerlevel10k() {
+    # https://github.com/romkatv/powerlevel10k
+    git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/powerlevel10k
+}
+
+configure_zshrc() {
+    # Configurações do arquivo .zshrc
+    echo "Configurando .zshrc..."
+    cat "$(pwd)/install/zshrc.tpl" >> $HOME/.zshrc
+    echo ".zshrc configurado com sucesso!"
+}
 
 main() {
     install_zsh
     install_homebrew
-    # install_ohmyzsh
-    # install_fzf
-    # install_powerlevel10k
+    install_ohmyzsh
+    install_powerlevel10k
+    configure_zshrc
 }
 
 main
