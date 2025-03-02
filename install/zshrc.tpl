@@ -1,5 +1,5 @@
 # p10k
-source /home/linuxbrew/.linuxbrew/opt/p10k/p10k.zsh
+source ~/powerlevel10k/powerlevel10k.zsh-theme
 [[ ! -f ~/.dotfiles/alias/.p10k.zsh ]] || source ~/.dotfiles/alias/.p10k.zsh
 
 # Set up Homebrew
@@ -13,3 +13,5 @@ export PATH="$PATH:$HOME/.local/bin:/root/.local/bin:/snap/bin"
 
 # exports dotfiles
 [[ ! -f ~/.dotfiles/alias/alias ]] || source ~/.dotfiles/alias/alias
+[[ ! -f ~/.dotfiles/alias/work ]] || source ~/.dotfiles/alias/work
+[[ ! -f ~/.dotfiles/alias/zoxide ]] || source ~/.dotfiles/alias/zoxide

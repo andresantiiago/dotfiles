@@ -7,7 +7,7 @@ source <(kubectl completion zsh)
 alias kns="kubectl config set-context --current --namespace"
 
 # pwgen para gerar senhas
-alias passgen="pwgen -s 12 1 -y -c 0 | pbcopy | echo 'Password generated and copied to clipboard'"
+alias passgen="pwgen -s 12 1 -y -c 0"
 
 # Atalho para gerar loop de curl
 lcurl() {

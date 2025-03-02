@@ -10,6 +10,7 @@ go-task/tap/go-task
 helm
 ipcalc
 jq
+kubectl
 k9s
 kind
 kubernetes-cli
@@ -19,3 +20,4 @@ sha3sum
 terraform
 tmux
 wget
+zoxide

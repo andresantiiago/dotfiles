@@ -7,7 +7,7 @@ install_zsh() {
         chsh -s $(which zsh)
     elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
         OS="Linux"
-        sudo apt install zsh -y
+        sudo apt install zsh curl -y
         chsh -s $(which zsh)
     else
         echo "Sistema operacional não suportado."
@@ -21,6 +21,8 @@ install_homebrew() {
 
     if [ "$BREW_EXISTS" = "yes" ]; then
         echo "Homebrew já está instalado."
+        echo 'eval "\$(${HOMEBREW_PREFIX}/bin/brew shellenv)"' >> $HOME/.zshrc
+        eval "\$(${HOMEBREW_PREFIX}/bin/brew shellenv)"
     else
         echo "Instalando Homebrew..."
         /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
@@ -45,13 +47,14 @@ install_homebrew() {
 
 install_ohmyzsh() {
     # https://github.com/ohmyzsh/ohmyzsh
+    echo "Instalando Oh My Zsh..."
     sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-    return 0
 }
 
 
 install_powerlevel10k() {
     # https://github.com/romkatv/powerlevel10k
+    echo "Instalando Powerlevel10k..."
     git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/powerlevel10k
 }
 
