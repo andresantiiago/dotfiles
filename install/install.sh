@@ -51,11 +51,16 @@ install_ohmyzsh() {
     sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 }
 
-
 install_powerlevel10k() {
     # https://github.com/romkatv/powerlevel10k
     echo "Instalando Powerlevel10k..."
     git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/powerlevel10k
+}
+
+install_zoxide() {
+    # https://github.com/ajeetdsouza/zoxide
+    echo "Instalando zoxide..."
+    /bin/bash -c "$(curl -sSfL https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh)"
 }
 
 configure_zshrc() {
@@ -65,11 +70,13 @@ configure_zshrc() {
     echo ".zshrc configurado com sucesso!"
 }
 
+
 main() {
     install_zsh
     install_homebrew
-    install_ohmyzsh
-    install_powerlevel10k
+    # install_ohmyzsh
+    # install_powerlevel10k
+    # install_zoxide
     configure_zshrc
 }
 
