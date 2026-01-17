@@ -77,7 +77,7 @@ main() {
     # install_ohmyzsh
     # install_powerlevel10k
     # install_zoxide
-    configure_zshrc
+    # configure_zshrc
 }
 
 main
